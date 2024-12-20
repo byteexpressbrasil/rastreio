@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreamento - ByteExpress</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2em;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 1em;
+            color: #0073e6;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8em;
+            margin-bottom: 1.2em;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #0073e6;
+        }
+
+        button {
+            width: 100%;
+            background-color: #0073e6;
+            color: #fff;
+            padding: 0.8em;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        .result {
+            display: none;
+            margin-top: 1.5em;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .result p {
+            margin: 0.5em 0;
+        }
+
+        .delayed {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .delayed-message {
+            color: #e63946;
+            font-style: italic;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ByteExpress - Rastreamento</h1>
+        <input type="text" id="trackingCode" placeholder="Digite seu código de rastreamento">
+        <button onclick="trackPackage()">Rastrear</button>
+
+        <div id="result" class="result">
+            <h3>Status do Rastreamento:</h3>
+            <p><strong>Origem:</strong> São Paulo, SP</p>
+            <p><strong>Destino:</strong> Aracatu, BA</p>
+            <p><strong>Rota Atual:</strong> Salvador, BA &rarr; Aracatu, BA</p>
+            <p><strong>Status:</strong> Em transporte</p>
+            <p class="delayed">A encomenda está em trânsito há 10 dias.</p>
+            <p class="delayed-message">Aviso: A sua encomenda está atrasada devido a problemas logísticos.</p>
+        </div>
+    </div>
+
+    <script>
+        const validCode = "BYT9023SPAR";
+        console.log("Código de rastreamento gerado:", validCode);
+
+        function trackPackage() {
+            const userCode = document.getElementById("trackingCode").value.trim();
+            if (userCode === validCode) {
+                document.getElementById("result").style.display = "block";
+            } else {
+                alert("Código de rastreamento inválido. Tente novamente.");
+            }
+        }
+    </script>
+</body>
+</html>
