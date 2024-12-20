@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rastreamento - ByteExpress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -75,8 +76,48 @@
             line-height: 1.6;
         }
 
-        .result p {
-            margin: 0.5em 0;
+        .timeline {
+            margin: 2em 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 2px;
+            height: 100%;
+            background: #0073e6;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 2em;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item i {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: #0073e6;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        .timeline-item p {
+            margin: 0;
         }
 
         .delayed {
@@ -99,11 +140,22 @@
 
         <div id="result" class="result">
             <h3>Status do Rastreamento:</h3>
-            <p><strong>Origem:</strong> São Paulo, SP</p>
-            <p><strong>Destino:</strong> Aracatu, BA</p>
-            <p><strong>Rota Atual:</strong> Salvador, BA &rarr; Aracatu, BA</p>
-            <p><strong>Status:</strong> Em transporte</p>
-            <p class="delayed">A encomenda está em trânsito há 10 dias.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <i class="fas fa-box"></i>
+                    <p><strong>Origem:</strong> São Paulo, SP</p>
+                    <p>Enviado</p>
+                </div>
+                <div class="timeline-item">
+                    <i class="fas fa-truck"></i>
+                    <p><strong>Rota Atual:</strong> Salvador, BA &rarr; Aracatu, BA</p>
+                    <p>Em transporte</p>
+                </div>
+                <div class="timeline-item">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p class="delayed">A encomenda está em trânsito há 10 dias.</p>
+                </div>
+            </div>
             <p class="delayed-message">Aviso: A sua encomenda está atrasada devido a problemas logísticos.</p>
         </div>
     </div>
